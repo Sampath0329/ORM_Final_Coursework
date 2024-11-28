@@ -33,6 +33,8 @@ public class LoginFormController {
     public static String userName = null;
     public static String paswword = null;
 
+    public static UserDTO loginUser = null;
+
     UserBo userBo = (UserBo) BOFactory.getInstance().getBo(BOFactory.BoTypes.USER);
 
     @FXML
@@ -43,8 +45,8 @@ public class LoginFormController {
 
 
         try {
-            UserDTO userDTO = userBo.searchUser(userName);
-            if (CheckCredential.validatePassword(paswword,userDTO.getPw())){
+             loginUser = userBo.searchUser(userName);
+            if (CheckCredential.validatePassword(paswword,loginUser.getPw())){
 
                 AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashBaoardMain_form.fxml"));
 

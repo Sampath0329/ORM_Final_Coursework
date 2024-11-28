@@ -77,7 +77,7 @@ public class UserBoImpl implements UserBo {
     @Override
     public UserDTO searchUser(String userName) throws IOException {
         User user = userDao.search(userName);
-        System.out.println(user);
+
         return new UserDTO(
                 user.getUserName(),
                 user.getFirstName(),

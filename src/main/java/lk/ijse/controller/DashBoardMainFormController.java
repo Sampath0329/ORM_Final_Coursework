@@ -15,6 +15,7 @@ import java.io.IOException;
 
 public class DashBoardMainFormController {
 
+    public JFXButton btnStudentRegister;
     @FXML
     private JFXButton btnDashBoard;
 
@@ -96,13 +97,19 @@ public class DashBoardMainFormController {
     }
 
     @FXML
-    void btnProgramOnAction(ActionEvent event) {
+    void btnProgramOnAction(ActionEvent event) throws IOException {
+        AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/program_form.fxml"));
 
+        centerNode.getChildren().clear();
+        centerNode.getChildren().add(dashBoardCenter);
     }
 
     @FXML
-    void btnStudentOnAction(ActionEvent event) {
+    void btnStudentOnAction(ActionEvent event) throws IOException {
+        AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/student_form.fxml"));
 
+        centerNode.getChildren().clear();
+        centerNode.getChildren().add(dashBoardCenter);
     }
 
     @FXML
@@ -113,5 +120,11 @@ public class DashBoardMainFormController {
         centerNode.getChildren().add(dashBoardCenter);
     }
 
+    public void btnStudentRegisterOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/registration_form.fxml"));
+
+        centerNode.getChildren().clear();
+        centerNode.getChildren().add(dashBoardCenter);
+    }
 }
 

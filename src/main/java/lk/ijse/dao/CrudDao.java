@@ -1,7 +1,5 @@
 package lk.ijse.dao;
 
-import lk.ijse.entity.User;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -16,5 +14,5 @@ public interface CrudDao<T> extends SuperDao{
 
     public boolean delete(String id) throws IOException;
 
-    User search(String userName) throws IOException;
+    T search(String userName) throws IOException;
 }
