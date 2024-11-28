@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="centerNode" prefHeight="970.0" prefWidth="1598.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBoardCenterFormController">
+   <children>
+      <AnchorPane layoutX="819.0" layoutY="357.0" prefHeight="573.0" prefWidth="739.0" style="-fx-background-color: #baceba; -fx-background-radius: 50;">
+         <children>
+            <BarChart fx:id="chartPayment" layoutX="50.0" layoutY="125.0" prefHeight="434.0" prefWidth="619.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <Label layoutX="211.0" layoutY="54.0" prefHeight="36.0" prefWidth="318.0" styleClass="otherOpacity" text="Monthly Income">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane layoutX="40.0" layoutY="357.0" prefHeight="573.0" prefWidth="739.0" style="-fx-background-color: #baceba; -fx-background-radius: 50;">
+         <children>
+            <BarChart fx:id="chartStudent" layoutX="50.0" layoutY="125.0" prefHeight="434.0" prefWidth="619.0" styleClass="otherOpacity">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <Label layoutX="88.0" layoutY="42.0" prefHeight="36.0" prefWidth="571.0" styleClass="otherOpacity" text="Monthly Register Student">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane layoutX="40.0" layoutY="40.0" prefHeight="277.0" prefWidth="479.0" style="-fx-background-color: #1af21a; -fx-background-radius: 50;">
+         <children>
+            <Label layoutX="23.0" layoutY="179.0" prefHeight="34.0" prefWidth="213.0" styleClass="otherOpacity" text="Student">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="215.0" prefHeight="36.0" prefWidth="265.0" styleClass="otherOpacity" text="Total Students">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblStudentCount" layoutX="42.0" layoutY="55.0" prefHeight="124.0" prefWidth="128.0" styleClass="otherOpacity" text="0">
+               <font>
+                  <Font size="95.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="559.33" layoutY="40.0" prefHeight="277.0" prefWidth="479.0" style="-fx-background-color: #7a7de9; -fx-background-radius: 50;">
+         <children>
+            <Label layoutX="23.0" layoutY="179.0" prefHeight="34.0" prefWidth="213.0" styleClass="otherOpacity" text="Programs">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="215.0" prefHeight="36.0" prefWidth="265.0" styleClass="otherOpacity" text="Total Programs">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblProgramsCount" layoutX="42.0" layoutY="55.0" prefHeight="124.0" prefWidth="128.0" style="-fx-opacity: 1;" styleClass="otherOpacity" text="0">
+               <font>
+                  <Font size="95.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane layoutX="1078.33" layoutY="40.0" prefHeight="277.0" prefWidth="479.0" style="-fx-background-color: #df7f7f; -fx-background-radius: 50;">
+         <children>
+            <Label layoutX="23.0" layoutY="179.0" prefHeight="34.0" prefWidth="213.0" styleClass="otherOpacity" text="Payment">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="215.0" prefHeight="36.0" prefWidth="265.0" styleClass="otherOpacity" text="Total Payments">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPayments" layoutX="42.0" layoutY="55.0" prefHeight="124.0" prefWidth="128.0" styleClass="otherOpacity" text="0">
+               <font>
+                  <Font size="95.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

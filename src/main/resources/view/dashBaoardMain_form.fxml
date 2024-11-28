@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="mainNode" prefHeight="990.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBoardMainFormController">
+   <children>
+      <ImageView fitHeight="990.0" fitWidth="1900.0">
+         <image>
+            <Image url="@../asessts/background.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="leftNode" layoutX="14.0" layoutY="10.0" prefHeight="970.0" prefWidth="258.0" style="-fx-background-color: lightblue;">
+         <children>
+            <ImageView fx:id="imgViewLogo" fitHeight="194.0" fitWidth="200.0" layoutX="29.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer;" />
+            <JFXButton fx:id="btnDashBoard" layoutX="11.0" layoutY="437.0" onAction="#btnDashBoardOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="DashBoard" />
+            <JFXButton fx:id="btnStudent" layoutX="11.0" layoutY="495.0" onAction="#btnStudentOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="Student" />
+            <JFXButton fx:id="btnProgram" layoutX="11.0" layoutY="552.0" onAction="#btnProgramOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="Program" />
+            <JFXButton fx:id="btnUser" layoutX="11.0" layoutY="609.0" onAction="#btnUserOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="User" />
+            <JFXButton fx:id="btnLogOut" layoutX="11.0" layoutY="909.0" onAction="#btnLogOutOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="LogOut" />
+            <Label fx:id="lbl_header" layoutX="29.0" layoutY="25.0" prefHeight="41.0" prefWidth="200.0" text="Welcome" />
+            <JFXButton fx:id="btnMyProfile" layoutX="11.0" layoutY="666.0" onAction="#btnMyProfileOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="My_Profile" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="centerNode" layoutX="288.0" layoutY="10.0" prefHeight="970.0" prefWidth="1598.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/dashbord.css" />
+   </children>
+</AnchorPane>

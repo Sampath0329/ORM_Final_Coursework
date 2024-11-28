@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="centerNode" prefHeight="970.0" prefWidth="1598.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserFormController">
+   <children>
+      <AnchorPane layoutX="49.0" layoutY="20.0" prefHeight="70.0" prefWidth="1500.0">
+         <children>
+            <AnchorPane layoutX="511.0" layoutY="14.0" prefHeight="42.0" prefWidth="740.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-background-color: #898686;">
+               <children>
+                  <AnchorPane layoutX="683.0" layoutY="4.0" prefHeight="32.0" prefWidth="42.0" style="-fx-background-color: white; -fx-background-radius: 50%;" />
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="686.0" layoutY="6.0">
+                     <image>
+                        <Image url="@../asessts/icon/search.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
+            <TextField layoutX="528.0" layoutY="23.0" prefHeight="24.0" prefWidth="658.0" promptText="Search.." />
+            <Label layoutX="30.0" layoutY="18.0" text="Employee  Controller">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblUser" layoutX="49.0" layoutY="556.0" prefHeight="391.0" prefWidth="1500.0" style="-fx-background-color: white;">
+        <columns>
+          <TableColumn fx:id="colUserName" prefWidth="116.0" text="UserName" />
+          <TableColumn fx:id="colName" prefWidth="170.0" text="First Name" />
+            <TableColumn fx:id="colLastName" prefWidth="193.0" text="Last Name" />
+            <TableColumn fx:id="colEmail" prefWidth="284.0" text="Emai" />
+            <TableColumn fx:id="colNic" prefWidth="179.0" text="NIC" />
+            <TableColumn fx:id="colAddress" prefWidth="400.0" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="157.0" text="Contact" />
+            <TableColumn fx:id="colPw" prefWidth="157.0" text="Contact" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="49.0" layoutY="130.0" prefHeight="391.0" prefWidth="1500.0" style="-fx-background-color: #9a9ca0; -fx-background-radius: 50;">
+         <children>
+            <Label layoutX="170.0" layoutY="58.0" prefHeight="20.0" prefWidth="107.0" text="UserName : ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUserName" layoutX="277.0" layoutY="58.0" prefHeight="20.0" prefWidth="107.0" text="UserName">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="170.0" layoutY="115.0" prefHeight="20.0" prefWidth="107.0" text="First Name">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="393.0" layoutY="115.0" prefHeight="20.0" prefWidth="107.0" text="Last Name">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtFirstName" layoutX="170.0" layoutY="141.0" prefHeight="0.0" prefWidth="180.0" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="txtLastName" layoutX="393.0" layoutY="141.0" prefWidth="180.0" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Label layoutX="612.0" layoutY="115.0" prefHeight="20.0" prefWidth="107.0" text="NIC">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNIC" layoutX="612.0" layoutY="141.0" prefWidth="180.0" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Label layoutX="830.0" layoutY="116.0" prefHeight="20.0" prefWidth="107.0" text="Address">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtAddress" layoutX="830.0" layoutY="142.0" prefHeight="24.0" prefWidth="442.0" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Label layoutX="170.0" layoutY="202.0" prefHeight="20.0" prefWidth="107.0" text="Email">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmail" layoutX="170.0" layoutY="228.0" prefHeight="24.0" prefWidth="296.0" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Label layoutX="518.0" layoutY="202.0" prefHeight="20.0" prefWidth="107.0" text="Contact">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtContact" layoutX="518.0" layoutY="228.0" prefHeight="24.0" prefWidth="296.0" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <JFXButton layoutX="170.0" layoutY="316.0" onAction="#btnUpdateOpnAction" prefHeight="24.0" prefWidth="142.0" style="-fx-background-color: #0d6efd;" text="Update User">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="352.0" layoutY="316.0" onAction="#btnDeleteOnAction" prefHeight="24.0" prefWidth="142.0" style="-fx-background-color: #dc3545;" text="Delete User">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="534.0" layoutY="316.0" onAction="#btnUpdateClearOnAction" prefHeight="24.0" prefWidth="142.0" style="-fx-background-color: #f87b06;" text="Clear">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <TextField fx:id="txtpw" layoutX="838.0" layoutY="228.0" prefHeight="24.0" prefWidth="296.0" style="-fx-border-color: #898686;" visible="false">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="userRegisterAnco" layoutX="928.0" layoutY="110.0" prefHeight="823.0" prefWidth="766.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <AnchorPane layoutX="86.0" layoutY="509.0" prefHeight="233.0" prefWidth="561.0" style="-fx-border-color: #c4c2c2; -fx-border-radius: 50;">
+               <children>
+                  <TextField fx:id="txtRUserName" layoutX="14.0" layoutY="63.0" prefWidth="230.0" promptText="UserName" style="-fx-border-color: #898686;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="15.0" layoutY="39.0" text="User Name">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="284.0" layoutY="39.0" text="Password">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="284.0" layoutY="123.0" text="Re-Enter Password">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="txtRPw" layoutX="284.0" layoutY="63.0" prefWidth="230.0" promptText="password" style="-fx-border-color: #898686;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </PasswordField>
+                  <TextField fx:id="txtRPwVisible" layoutX="284.0" layoutY="63.0" prefWidth="230.0" style="-fx-border-color: #898686;" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="txtRRePw" layoutX="284.0" layoutY="147.0" prefWidth="230.0" promptText="Re-Enter password" style="-fx-border-color: #898686;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </PasswordField>
+                  <TextField fx:id="txtRePwVisible" layoutX="284.0" layoutY="147.0" prefWidth="230.0" style="-fx-border-color: #898686;" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <JFXButton layoutX="514.0" layoutY="147.0" onMousePressed="#togglePasswordVisibility2" onMouseReleased="#togglePasswordVisibility2">
+                     <graphic>
+                        <ImageView fx:id="isPasswordVisible2" fitHeight="26.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../asessts/icon/closedEye.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <TextField fx:id="txtRFirstName" layoutX="102.0" layoutY="233.0" prefHeight="24.0" prefWidth="230.0" promptText="First Name" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtRNIC" layoutX="102.0" layoutY="326.0" prefHeight="24.0" prefWidth="230.0" promptText="NIC" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtRContact" layoutX="102.0" layoutY="428.0" prefWidth="230.0" promptText="Contact" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtREmail" layoutX="402.0" layoutY="428.0" prefWidth="230.0" promptText="Email" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtRLastName" layoutX="402.0" layoutY="233.0" prefWidth="230.0" promptText="Last Name" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextArea fx:id="txtRAddress" layoutX="402.0" layoutY="326.0" prefHeight="24.0" prefWidth="230.0" promptText="Address" style="-fx-border-color: #898686;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextArea>
+            <ImageView fx:id="reportLeftRightImage" fitHeight="42.0" fitWidth="42.0" layoutX="-27.0" layoutY="392.0" onMouseClicked="#employeeAddPaneShowHideBtn">
+               <image>
+                  <Image url="@../asessts/icon/backLeftIcon.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="156.0" layoutY="35.0" prefHeight="70.0" prefWidth="622.0" style="-fx-background-radius: 50px 0 0 50px; -fx-background-color: black; -fx-opacity: 0.5;">
+               <children>
+                  <Label layoutX="104.0" layoutY="20.0" text="Register Codinator" textFill="#fcfcfc">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="102.0" layoutY="209.0" text="Fist Name">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="402.0" layoutY="209.0" text="Last Name">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="102.0" layoutY="300.0" text="NIC">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="402.0" layoutY="300.0" text="Address">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="102.0" layoutY="404.0" text="Contact">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="402.0" layoutY="404.0" text="Email">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnAddUser" layoutX="116.0" layoutY="755.0" onAction="#btnAddUserOnAction" prefHeight="24.0" prefWidth="142.0" style="-fx-background-color: #0eed0e;" text="Save">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="292.0" layoutY="755.0" onAction="#btnCleraOnAction" prefHeight="24.0" prefWidth="142.0" style="-fx-background-color: #f87b06;" text="Clear">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

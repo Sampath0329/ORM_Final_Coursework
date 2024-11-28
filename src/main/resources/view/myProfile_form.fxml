@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onDragDetected="#btnClearOnAction" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MyProfileController">
+   <children>
+      <Label layoutX="198.0" layoutY="45.0" text="Profile Mange">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="121.0" fitWidth="121.0" layoutX="240.0" layoutY="165.0">
+         <image>
+            <Image url="@../asessts/icon/human.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUserName" editable="false" layoutX="215.0" layoutY="376.0" promptText="UserName" style="-fx-border-color: #898686;">
+         <font>
+            <Font size="16.0" />
+         </font>
+
+      </TextField>
+      <TextField fx:id="txtCurrentPw" editable="false" layoutX="215.0" layoutY="425.0" promptText="Current Password" style="-fx-border-color: #898686;" >
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtNewPw" layoutX="215.0" layoutY="485.0" promptText="New Password" style="-fx-border-color: #898686;" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtRNewPw" layoutX="215.0" layoutY="554.0" promptText="Re-Enter New Password" style="-fx-border-color: #898686;" visible="false">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="txtPFRNewPw" layoutX="215.0" layoutY="554.0" promptText="Re-Enter New Password" style="-fx-border-color: #898686;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="txtPFNewPw" layoutX="215.0" layoutY="485.0" promptText="New Password" style="-fx-border-color: #898686;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </PasswordField>
+      <JFXButton layoutX="425.0" layoutY="486.0" onMousePressed="#btnPasswordShowAction" onMouseReleased="#btnPasswordShowAction" prefHeight="31.0" prefWidth="59.0" />
+      <ImageView fx:id="imgeView" fitHeight="26.0" fitWidth="30.0" layoutX="425.0" layoutY="489.0">
+         <image>
+            <Image url="@../asessts/icon/closedEye.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="221.0" layoutY="650.0" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0eed0e;" text="Save">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="335.0" layoutY="650.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #f87b06;" text="Clear">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
