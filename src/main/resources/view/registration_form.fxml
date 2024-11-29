@@ -10,6 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.Button?>
 <AnchorPane fx:id="centerNode" prefHeight="970.0" prefWidth="1598.0" style="-fx-border-color: #898686;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegistrationFormController">
    <children>
       <AnchorPane layoutX="49.0" layoutY="39.0" prefHeight="70.0" prefWidth="1500.0">
@@ -90,11 +91,11 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <JFXButton layoutX="1059.0" layoutY="504.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #0eed0e;" text="Register">
+      <Button layoutX="1059.0" layoutY="504.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #0eed0e;" text="Register">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
-      </JFXButton>
+      </Button>
       <JFXButton layoutX="1256.0" layoutY="504.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #f87b06;" text="Clear">
          <font>
             <Font name="System Bold" size="18.0" />

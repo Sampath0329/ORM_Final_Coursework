@@ -14,12 +14,24 @@ public class FactoryConfiguration {
 
 
     private FactoryConfiguration() {
-        Configuration configuration = new Configuration().configure()
-                .addAnnotatedClass(User.class)
-                .addAnnotatedClass(Course.class)
+        Properties properties = new Properties();
+        try {
+            properties.load(this.getClass().getResourceAsStream("/Hibernate.properties"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Configuration configuration = new Configuration();
+
+        configuration.setProperties(properties);
+
+        configuration.addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Registration.class)
+                .addAnnotatedClass(Course.class)
                 .addAnnotatedClass(Payment.class)
-                .addAnnotatedClass(Student.class);
+                .addAnnotatedClass(User.class);
+
+        //build session factory
         sessionFactory = configuration.buildSessionFactory();
     }
 

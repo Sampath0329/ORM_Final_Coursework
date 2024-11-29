@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+//@ToString
 @Entity
 public class Registration {
     @Id

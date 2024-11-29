@@ -13,7 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString@Entity
+//@ToString
+@Entity
 public class Course {
     @Id
     private String CourseId;

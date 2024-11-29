@@ -16,6 +16,7 @@ import java.io.IOException;
 public class DashBoardMainFormController {
 
     public JFXButton btnStudentRegister;
+    public JFXButton btnPayment;
     @FXML
     private JFXButton btnDashBoard;
 
@@ -98,10 +99,15 @@ public class DashBoardMainFormController {
 
     @FXML
     void btnProgramOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/program_form.fxml"));
 
-        centerNode.getChildren().clear();
-        centerNode.getChildren().add(dashBoardCenter);
+        if (LoginFormController.loginUser.getUserName().equals("Admin")){
+            AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/program_form.fxml"));
+
+            centerNode.getChildren().clear();
+            centerNode.getChildren().add(dashBoardCenter);
+        }else {
+            new Alert(Alert.AlertType.INFORMATION,"This option Only access in Admin !").show();
+        }
     }
 
     @FXML
@@ -114,14 +120,25 @@ public class DashBoardMainFormController {
 
     @FXML
     void btnUserOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/user_form.fxml"));
+        if (LoginFormController.loginUser.getUserName().equals("Admin")){
+            AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/user_form.fxml"));
+
+            centerNode.getChildren().clear();
+            centerNode.getChildren().add(dashBoardCenter);
+        }else {
+            new Alert(Alert.AlertType.INFORMATION,"This option Only access in Admin !").show();
+        }
+    }
+
+    public void btnStudentRegisterOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/registration_form.fxml"));
 
         centerNode.getChildren().clear();
         centerNode.getChildren().add(dashBoardCenter);
     }
 
-    public void btnStudentRegisterOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/registration_form.fxml"));
+    public void btnPaymentOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane dashBoardCenter = FXMLLoader.load(this.getClass().getResource("/view/payment_form.fxml"));
 
         centerNode.getChildren().clear();
         centerNode.getChildren().add(dashBoardCenter);

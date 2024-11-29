@@ -59,4 +59,14 @@ public class StudentBoImpl implements StudentBo {
         StudentDTO studentDTO = new StudentDTO(student.getStudentId(), student.getName(), student.getContact(), student.getAddress(), student.getEmail());
         return studentDTO;
     }
+
+    @Override
+    public int getStudentCount() throws IOException {
+        List<Student> all = studentDao.getAll();
+        int studentCount = 0;
+        for (Student student : all){
+            studentCount++;
+        }
+        return studentCount;
+    }
 }

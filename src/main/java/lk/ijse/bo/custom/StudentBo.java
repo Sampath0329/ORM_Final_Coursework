@@ -20,4 +20,6 @@ public interface StudentBo extends SuperBo {
     String getStudentName(String studentId) throws IOException;
 
     StudentDTO getStudentDetail(String studentId);
+
+    int getStudentCount() throws IOException;
 }

@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentDaoImpl implements PaymentDao {
@@ -55,7 +56,15 @@ public class PaymentDaoImpl implements PaymentDao {
 
     @Override
     public List<Payment> getAll() throws IOException {
-        return null;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("FROM Payment ");
+        List<Payment> payments = (ArrayList<Payment>) query.list();
+
+        transaction.commit();
+        session.close();
+        return payments;
     }
 
     @Override
@@ -73,9 +82,10 @@ public class PaymentDaoImpl implements PaymentDao {
         return null;
     }
 
+
     @Override
-    public double getBalance(double upfrontPayment, double amount, double programFee) {
-        return programFee - (upfrontPayment + amount);
+    public double getBalance(double upfrontPayment, double v, double programFee) {
+        return programFee - (upfrontPayment + v);
     }
 
     @Override
@@ -84,5 +94,29 @@ public class PaymentDaoImpl implements PaymentDao {
             return "Completed";
         }
         return "Incomplete";
+    }
+
+    @Override
+    public double getPreviousInstallments(String registrationId) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT balance from Payment where registration.registrationId = :registrationId");
+        query.setParameter("registrationId", registrationId);
+        ArrayList<Double> balanceList = (ArrayList<Double>) query.list();
+
+        double Balance = 0;
+
+        for (double balance : balanceList) {
+            Balance += balance;
+        }
+        transaction.commit();
+        session.close();
+        return Balance;
+    }
+
+    @Override
+    public double getNewBalance(double balance, double amount) {
+        return balance - amount;
     }
 }

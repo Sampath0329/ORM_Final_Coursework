@@ -134,6 +134,8 @@ public class CourseDaoIpml implements CourseDao {
             double programFee = course.getProgramFee();
 
             Course course1 = new Course(id, courseName, duration, programFee);
+            transaction.commit();
+            session.close();
             return course1;
         }
 

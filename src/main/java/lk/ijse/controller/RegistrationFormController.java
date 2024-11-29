@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.CourseBo;
 import lk.ijse.bo.custom.RegistrationBo;
@@ -12,6 +13,7 @@ import lk.ijse.bo.custom.StudentBo;
 import lk.ijse.dto.CourseDTO;
 import lk.ijse.dto.RegistrationDTO;
 import lk.ijse.dto.StudentDTO;
+import lk.ijse.dto.Tm.RegistrationTm;
 import lk.ijse.entity.Course;
 import lk.ijse.entity.Student;
 
@@ -20,6 +22,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class RegistrationFormController {
 
@@ -60,7 +63,7 @@ public class RegistrationFormController {
     private Label lblStudentName;
 
     @FXML
-    private TableView<?> tblRegistration;
+    private TableView<RegistrationTm> tblRegistration;
 
     @FXML
     private TextField txtUpfrontPayment;
@@ -77,9 +80,35 @@ public class RegistrationFormController {
         generateNextRegistrationId();
         getAllStudentId();
         getAllCourseId();
-//        setCellValueFactory();
-//        loadAllRegistration();
+        setCellValueFactory();
+        loadAllRegistration();
 
+    }
+
+    private void loadAllRegistration() {
+        ObservableList<RegistrationTm> obList = FXCollections.observableArrayList();
+
+        try {
+            List<RegistrationDTO> registrationDTOS = registrationBo.getAllRegistrations();
+            for (RegistrationDTO registration : registrationDTOS){
+                RegistrationTm registrationTm = new RegistrationTm(registration.getRegistrationId(), registration.getStudent().getStudentId(), registration.getStudent().getName(), registration.getCourse().getCourseId(), registration.getCourse().getCourseName(), registration.getUpfrontPayment());
+                obList.add(registrationTm);
+            }
+            tblRegistration.setItems(obList);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void setCellValueFactory() {
+        colRegistrationId.setCellValueFactory(new PropertyValueFactory<>("registrationId"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        colCourseId.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        colCourseName.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+        colUpfrontPayment.setCellValueFactory(new PropertyValueFactory<>("upfrontPayment"));
     }
 
     private void getAllCourseId() {
@@ -128,7 +157,7 @@ public class RegistrationFormController {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-
+       clearFields();
     }
 
     @FXML
@@ -159,12 +188,22 @@ public class RegistrationFormController {
 
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Registration is Successfully completed...!").show();
-//                clearFields();
+                clearFields();
             }
         } catch (ParseException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
+
+    private void clearFields() {
+        cmbCourseId.getSelectionModel().clearSelection();
+        cmbStudentId.getSelectionModel().clearSelection();
+        txtUpfrontPayment.setText("");
+        loadAllRegistration();
+        generateNextRegistrationId();
     }
 
     @FXML

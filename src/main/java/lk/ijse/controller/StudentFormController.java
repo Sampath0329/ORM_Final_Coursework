@@ -12,9 +12,12 @@ import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.StudentBo;
 import lk.ijse.dto.StudentDTO;
 import lk.ijse.dto.Tm.StudentTm;
+import lk.ijse.util.Regex;
+import lk.ijse.util.TextFeildRegex;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class StudentFormController {
 
@@ -117,21 +120,41 @@ public class StudentFormController {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        String studentId = lblStudentId.getText();
 
-        boolean isDelete = false;
-        try {
-            isDelete = studentBo.deleteStudent(studentId);
-            if (isDelete){
-                new Alert(Alert.AlertType.CONFIRMATION, "Student is Deleted...!").show();
-                clearFields();
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this student?", ButtonType.YES, ButtonType.NO);
+        confirmationAlert.setTitle("Confirm Deletion");
+        confirmationAlert.setHeaderText(null);
+
+
+        Optional<ButtonType> result = confirmationAlert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.YES) {
+
+            String studentId = lblStudentId.getText();
+            try {
+                boolean isDeleted = studentBo.deleteStudent(studentId);
+                if (isDeleted) {
+                    Alert successAlert = new Alert(Alert.AlertType.INFORMATION, "Student has been deleted successfully!");
+                    successAlert.setTitle("Deletion Successful");
+                    successAlert.setHeaderText(null);
+                    successAlert.show();
+                    clearFields();
+                } else {
+
+                    Alert failureAlert = new Alert(Alert.AlertType.ERROR, "Failed to delete the student. Please try again.");
+                    failureAlert.setTitle("Deletion Failed");
+                    failureAlert.setHeaderText(null);
+                    failureAlert.show();
+                }
+            } catch (IOException e) {
+
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR, "An error occurred: " + e.getMessage());
+                errorAlert.setTitle("Error");
+                errorAlert.setHeaderText(null);
+                errorAlert.show();
             }
-        } catch (IOException e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
-
-
     }
+
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
@@ -140,20 +163,23 @@ public class StudentFormController {
         String contact = txtContact.getText();
         String address = txtAddress.getText();
         String email = txtEmail.getText();
+        if (isValied()){
+            StudentDTO studentDTO = new StudentDTO(studentId, studentName, contact, address, email);
 
-        StudentDTO studentDTO = new StudentDTO(studentId, studentName, contact, address, email);
-
-        boolean isSaved = false;
-        try {
-            isSaved = studentBo.saveStudent(studentDTO);
-            if (isSaved){
-                new Alert(Alert.AlertType.INFORMATION, "New Student is Saved...!").show();
-                clearFields();
-                tblStudent.refresh();
+            boolean isSaved = false;
+            try {
+                isSaved = studentBo.saveStudent(studentDTO);
+                if (isSaved){
+                    new Alert(Alert.AlertType.INFORMATION, "New Student is Saved...!").show();
+                    clearFields();
+                    tblStudent.refresh();
+                }
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
-        } catch (IOException e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+
+
 
 
     }
@@ -197,18 +223,39 @@ public class StudentFormController {
     }
 
     @FXML
-    void txtContactOnAction(ActionEvent event) {
+    void txtNameOnAction(ActionEvent event) {
+        if (!Regex.setTextColor(TextFeildRegex.NAME, txtName)) {
+            new Alert(Alert.AlertType.ERROR, "Invalid name! Please enter a valid name with 3-50 characters.").show();
+        }
+    }
 
+    @FXML
+    void txtContactOnAction(ActionEvent event) {
+        if (!Regex.setTextColor(TextFeildRegex.CONTACT, txtContact)) {
+            new Alert(Alert.AlertType.ERROR, "Invalid contact number! It should start with 07 and have 10 digits.").show();
+        }
+    }
+
+    @FXML
+    void txtAddressOnAction(ActionEvent event) {
+        if (!Regex.setTextColor(TextFeildRegex.NAME, txtAddress)) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Address! Please enter a valid Address with 3-50 characters.").show();
+        }
     }
 
     @FXML
     void txtEmailOnAction(ActionEvent event) {
-
+        if (!Regex.setTextColor(TextFeildRegex.EMAIL, txtEmail)) {
+            new Alert(Alert.AlertType.ERROR, "Invalid email! Please enter a valid email address.").show();
+        }
     }
+    private boolean isValied() {
+        if (!Regex.setTextColor(TextFeildRegex.NAME,txtName)) return false;
+        if (!Regex.setTextColor(TextFeildRegex.NAME,txtAddress)) return false;
+        if (!Regex.setTextColor(TextFeildRegex.EMAIL,txtEmail)) return false;
+        if (!Regex.setTextColor(TextFeildRegex.CONTACT,txtContact)) return false;
 
-    @FXML
-    void txtNameOnAction(ActionEvent event) {
-
+        return  true;
     }
 
 }

@@ -59,4 +59,14 @@ public class CourseBoIpml implements CourseBo {
         CourseDTO courseDTO = new CourseDTO(course.getCourseId(), course.getCourseName(), course.getDuration(), course.getProgramFee());
         return courseDTO;
     }
+
+    @Override
+    public int getCourseCount() throws IOException {
+        List<Course> all = courseDao.getAll();
+        int courseCount = 0;
+        for (Course course : all){
+            courseCount++;
+        }
+        return courseCount;
+    }
 }

@@ -20,4 +20,6 @@ public interface CourseBo extends SuperBo {
     String getCourseName(String courseId);
 
     CourseDTO getCourseDetail(String courseId);
+
+    int getCourseCount() throws IOException;
 }

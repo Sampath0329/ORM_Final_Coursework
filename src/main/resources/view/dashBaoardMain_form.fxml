@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="mainNode" prefHeight="990.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBoardMainFormController">
    <children>
@@ -15,15 +16,22 @@
       </ImageView>
       <AnchorPane fx:id="leftNode" layoutX="14.0" layoutY="10.0" prefHeight="970.0" prefWidth="258.0" style="-fx-background-color: lightblue;">
          <children>
-            <ImageView fx:id="imgViewLogo" fitHeight="194.0" fitWidth="200.0" layoutX="29.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer;" />
+            <ImageView fx:id="imgViewLogo" fitHeight="272.0" fitWidth="258.0" layoutX="1.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer;">
+               <image>
+                  <Image url="@../asessts/icon/logo.PNG" />
+               </image></ImageView>
             <JFXButton fx:id="btnDashBoard" layoutX="11.0" layoutY="380.0" onAction="#btnDashBoardOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="DashBoard" />
             <JFXButton fx:id="btnStudentRegister" layoutX="11.0" layoutY="438.0" onAction="#btnStudentRegisterOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="Student Register" />
             <JFXButton fx:id="btnProgram" layoutX="11.0" layoutY="552.0" onAction="#btnProgramOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="Program" />
-            <JFXButton fx:id="btnUser" layoutX="11.0" layoutY="609.0" onAction="#btnUserOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="User" />
+            <JFXButton fx:id="btnUser" layoutX="12.0" layoutY="666.0" onAction="#btnUserOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="User" />
             <JFXButton fx:id="btnLogOut" layoutX="11.0" layoutY="909.0" onAction="#btnLogOutOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="LogOut" />
-            <Label fx:id="lbl_header" layoutX="29.0" layoutY="25.0" prefHeight="41.0" prefWidth="200.0" text="Welcome" />
-            <JFXButton fx:id="btnMyProfile" layoutX="11.0" layoutY="666.0" onAction="#btnMyProfileOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="My_Profile" />
+            <Label fx:id="lbl_header" layoutX="38.0" layoutY="59.0" prefHeight="41.0" prefWidth="200.0" text="Welcome">
+               <font>
+                  <Font name="System Bold Italic" size="31.0" />
+               </font></Label>
+            <JFXButton fx:id="btnMyProfile" layoutX="12.0" layoutY="723.0" onAction="#btnMyProfileOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="My_Profile" />
             <JFXButton fx:id="btnStudent" layoutX="11.0" layoutY="495.0" onAction="#btnStudentOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="Student " />
+            <JFXButton fx:id="btnPayment" layoutX="12.0" layoutY="609.0" onAction="#btnPaymentOnAction" prefHeight="47.0" prefWidth="237.0" style="-fx-background-color: white;" text="Payment" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="centerNode" layoutX="288.0" layoutY="10.0" prefHeight="970.0" prefWidth="1598.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/dashbord.css" />
